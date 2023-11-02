@@ -1,11 +1,14 @@
-// import logo from './logo.svg';
 import './App.css';
-import Note from "./noteApp/notes"
+import Note from "./noteApp/notes";
+import {Typography} from "@mui/material"
 function App() {
   return (
-    <div className="App">
-        <Note/>
-    </div>
+    <>
+      <div className="App">
+          <Typography variant="h3">Notes</Typography>
+          <Note/>
+      </div>
+    </>
   );
 }
 
