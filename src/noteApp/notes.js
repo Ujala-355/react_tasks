@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import {Box,TextField,Button,Card,CardContent} from "@mui/material";
-import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import DeleteButton from "./Delete";
 const Note=()=>{
     const [notes,setNotes]=useState([]);
     const [newNote,setNewNote]=useState("");
@@ -30,11 +30,10 @@ const Note=()=>{
                     {notes.map((note,index)=>(
                         <Card 
                             key={index} 
-                            style={{width:300,height:200,backgroundColor:"pink" ,marginTop:10}}>
-                            <CardContent>{note}</CardContent>
-                            <DeleteOutlinedIcon onClick={()=>handleDelete(index)} />
+                            style={{width:300,height:200,backgroundColor:"#658bf1" ,marginTop:10}}>
+                            <CardContent style={{marginRight:240,color:"white"}}>{note}</CardContent>
+                            <DeleteButton onClick={()=>handleDelete(index)}/>
                         </Card>
-                        
                     ))}
                     
                 </div>
