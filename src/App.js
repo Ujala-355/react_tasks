@@ -1,19 +1,29 @@
 import './App.css';
 // import Note from "./noteApp/notes";
 // import {Typography} from "@mui/material"
-import EmojiSearch from "./emojiA/emoji"
-function App(){
-  return (
+// import EmojiSearch from "./emojiA/emoji"
+// function App(){
+//   return (
+//     <>
+//       <div className="App">
+//           {/* <Typography variant="h3">Notes</Typography>
+//           <Note/> */}
+//           <EmojiSearch/>
+//       </div>
+//     </>
+//   );
+// }
+
+// export default App;
+
+import EmojiPicker from 'emoji-picker-react';
+const EmojiSearch=()=>{
+  return(
     <>
-      <div className="App">
-          {/* <Typography variant="h3">Notes</Typography>
-          <Note/> */}
-          <EmojiSearch/>
-      </div>
+        <div style={{display:"flex", justifyContent:"center",height:"100vh",marginTop:"20px"}}>
+            <EmojiPicker />
+        </div>
     </>
-  );
+  )
 }
-
-export default App;
-
-
+export default EmojiSearch;
