@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 const emojiData=[
-  { symbol: "😀", name: "Grinning Face" },
+    { symbol: "😀", name: "Grinning Face" },
   { symbol: "😍", name: "Heart Eyes" },
   { symbol: "👍", name: "Thumbs Up" },
   { symbol: "🌟", name: "Star" },

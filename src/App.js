@@ -16,14 +16,27 @@ import './App.css';
 
 // export default App;
 
-import EmojiPicker from 'emoji-picker-react';
-const EmojiSearch=()=>{
+// import EmojiPicker from 'emoji-picker-react';
+// const EmojiSearch=()=>{
+//   return(
+//     <>
+//         <div style={{display:"flex", justifyContent:"center",height:"100vh",marginTop:"20px"}}>
+//             <EmojiPicker />
+//         </div>
+//     </>
+//   )
+// }
+// export default EmojiSearch;
+
+
+import ImageUpload from "./ImageCompression/ImageCompression"
+const App=()=>{
   return(
     <>
-        <div style={{display:"flex", justifyContent:"center",height:"100vh",marginTop:"20px"}}>
-            <EmojiPicker />
+        <div className="App">
+            <ImageUpload/>
         </div>
     </>
   )
 }
-export default EmojiSearch;
+export default App;
