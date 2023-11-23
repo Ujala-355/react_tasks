@@ -29,12 +29,41 @@ import './App.css';
 // export default EmojiSearch;
 
 
-import ImageUpload from "./ImageCompression/ImageCompression"
+// import ImageUpload from "./ImageCompression/ImageCompression"
+// const App=()=>{
+//   return(
+//     <>
+//         <div className="App">
+//             {/* <ImageUpload/> */}
+//         </div>
+//     </>
+//   )
+// }
+// export default App;
+
+// import MyInsetDividers from './mui/insetDividers';
+// import VerticalDividers from "./mui/VerticalDivider"
+
+// import Page from "./Routing/page"
+// const App=()=>{
+//   return(
+//     <>
+//         <div className="App">
+//             {/* <MyInsetDividers/> */}
+//             {/* <VerticalDividers/> */}
+//             <Page/>
+//         </div>
+//     </>
+//   )
+// }
+// export default App;
+
+import MyToastify from "./Toastify/toastify1"
 const App=()=>{
   return(
     <>
         <div className="App">
-            <ImageUpload/>
+            <MyToastify/>
         </div>
     </>
   )
