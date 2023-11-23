@@ -58,12 +58,12 @@ import './App.css';
 // }
 // export default App;
 
-import MyToastify from "./Toastify/toastify1"
+import MyPasswordToggle from "./PasswordToggle/passwordshowhide"
 const App=()=>{
   return(
     <>
         <div className="App">
-            <MyToastify/>
+              <MyPasswordToggle/>
         </div>
     </>
   )
