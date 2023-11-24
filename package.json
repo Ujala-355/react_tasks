@@ -17,6 +17,7 @@
     "emoji-picker-react": "^4.5.7",
     "emojilib": "^3.0.11",
     "image-compressor": "^2.0.3",
+    "jspdf": "^2.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.18.0",

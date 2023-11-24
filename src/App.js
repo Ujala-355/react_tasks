@@ -58,12 +58,15 @@ import './App.css';
 // }
 // export default App;
 
-import MyPasswordToggle from "./PasswordToggle/passwordshowhide"
+// import MyPasswordToggle from "./PasswordToggle/passwordshowhide"
+
+import PdfGenerator from "./jsPDF/jsPdf";
 const App=()=>{
   return(
     <>
         <div className="App">
-              <MyPasswordToggle/>
+            <PdfGenerator/>
+            {/* <MyPasswordToggle/> */}
         </div>
     </>
   )
