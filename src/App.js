@@ -1,4 +1,3 @@
-import './App.css';
 // import Note from "./noteApp/notes";
 // import {Typography} from "@mui/material"
 // import EmojiSearch from "./emojiA/emoji"
@@ -58,17 +57,19 @@ import './App.css';
 // }
 // export default App;
 
-// import MyPasswordToggle from "./PasswordToggle/passwordshowhide"
 
-import PdfGenerator from "./jsPDF/jsPdf";
+
+
+import Header from "./UI_Project/Header";
 const App=()=>{
   return(
     <>
         <div className="App">
-            <PdfGenerator/>
-            {/* <MyPasswordToggle/> */}
+           <Header/>
         </div>
     </>
   )
 }
 export default App;
+
+
