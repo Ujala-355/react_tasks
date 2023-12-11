@@ -59,13 +59,14 @@
 
 
 
-
-import Header from "./UI_Project/Header";
+import SideNav from './UI_Project/sideNav';
+// import Header from "./UI_Project/Header"
 const App=()=>{
   return(
     <>
         <div className="App">
-           <Header/>
+          <SideNav/>
+           {/* <Header/> */}
         </div>
     </>
   )
