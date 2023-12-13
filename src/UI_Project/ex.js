@@ -1,38 +1,148 @@
-import * as React from 'react';
+import  React from 'react';
 import "./sideStyle.css"
-import Box from '@mui/material/Box';
+import { styled, alpha } from '@mui/material/styles';
+import {
+    AppBar,
+    Box,
+    Toolbar,
+    IconButton,
+    InputBase,
+    Badge,
+    MenuItem,
+    Menu,
+    List,
+    ListItem,
+    ListItemButton,
+    ListItemIcon,
+    ListItemText,
+    Typography,
+    Button,
+} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import MailIcon from '@mui/icons-material/Mail';
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+import MoreIcon from '@mui/icons-material/MoreVert';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import { Button, Typography } from "@mui/material";
 import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 import Avatar from '@mui/material/Avatar';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
-const drawerWidth = 258;
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
-export default function PermanentDrawerLeft() {
+const Search = styled('div')(({ theme }) => ({
+  position: 'relative',
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: "#f0f1f6",
+  '&:hover': {
+    backgroundColor:"#f0f1f6",
+  },
+  marginRight: theme.spacing(2),
+  marginLeft: 0,
+  width: '100%',
+  height:"46px",
+  [theme.breakpoints.up('sm')]: {
+    marginLeft: theme.spacing(0),
+    width: '306px',
+  },
+}));
+
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+  padding: theme.spacing(0, 3),
+  height: '100%',
+  position: 'absolute',
+  pointerEvents: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+}));
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: 'inherit',
+  '& .MuiInputBase-input': {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('md')]: {
+      width: '20ch',
+    },
+  },
+}));
+const drawerWidth = 258;
+const Header=()=> {
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{display:"flex" }}>
         <CssBaseline />
-        <AppBar
+        <Box
             position="fixed"
             sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px`}}
         >
-            <Toolbar>
-                <Typography variant="h6" noWrap component="div">
-                    Permanent drawer
-                </Typography>
-            </Toolbar>
-        </AppBar>
-        <Drawer
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            sx={{ mr: 2,fontSize:"12px" ,color:"#8e94a9"}}
+          >
+            <MenuIcon />
+          </IconButton>
+
+          <Search>
+            <SearchIconWrapper>
+              <SearchIcon className="text"/>
+            </SearchIconWrapper>
+            <StyledInputBase
+              sx={{color:"#000"}}
+              placeholder="Search Products"
+              inputProps={{ 'aria-label': 'search ' }}
+            />
+          </Search>
+          
+          <Box sx={{ flexGrow:1}} />
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <IconButton
+                size="large"
+                edge="end"
+                color="inherit"
+            > 
+                <Avatar src="https://themewagon.github.io/connect-plus/assets/images/faces/face28.png" sx={{ width: "32px", height: "32px" }} />
+                <Typography  sx={{ml:"15px", fontSize:"14px", color:"#000"}}>Henry Klein</Typography>
+                <ArrowDropDownIcon/>
+            </IconButton>
+            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+                <MailOutlineIcon/>
+            </IconButton>
+
+            <IconButton
+              size="large"
+              aria-label="show 17 new notifications"
+              color="inherit"
+            >
+                <NotificationsNoneIcon />
+            </IconButton>
+          </Box>
+          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+            <IconButton
+              size="large"
+              aria-label="show more"
+              // aria-controls={mobileMenuId}
+              aria-haspopup="true"
+              // onClick={handleMobileMenuOpen}
+              color="inherit"
+            >
+              <MoreIcon />
+            </IconButton>
+          </Box>
+        </Toolbar>
+      </Box>
+      <Drawer
             sx={{
             width: drawerWidth,
             flexShrink: 0,
@@ -167,30 +277,22 @@ export default function PermanentDrawerLeft() {
                     </ListItem>
             </ListItemButton>
         </List>
-        <List>
-            <ListItem  disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                
-                </ListItemIcon>
-                <ListItemText primary="bye"/>
-              </ListItemButton>
-            </ListItem>
-        </List>
       </Drawer>
-        <Box
-            component="main"
+      <Box
+          component="main"
             sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
         >
                 <Toolbar />
-                <Typography>
-                    hello My Friend
-                </Typography>
-                <Typography>
-                    I am your best frieds
-                </Typography>
+                <Box sx={{backgroundColor:"red"}}>
+                    <Typography paragraph>
+                        hello My Friend
+                    </Typography>
+                    <Typography paragraph>
+                        I am your best frieds
+                    </Typography>
+                </Box>
         </Box>
     </Box>
   );
 }
-
+export default  Header;
