@@ -1,5 +1,6 @@
-.body{
-    background-color:"#A7AFB7"
+.Body{
+    background: linear-gradient(to right, #341ff7, #527ad1, #54a0d3, #6a41d8);
+    ;
 }
 .text{
     color:#8e94a9;
