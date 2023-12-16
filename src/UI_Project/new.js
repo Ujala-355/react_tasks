@@ -19,7 +19,8 @@ import {
     Avatar,
     Grid,
     Paper,
-} from '@mui/material'
+    styled,
+} from '@mui/material'                                                                                                                                          
 import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
@@ -41,8 +42,11 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import HttpsIcon from '@mui/icons-material/Https';
 import CircularProgress from '@mui/material/CircularProgress';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import { LineChart } from '@mui/x-charts/LineChart';
+import { BarChart } from '@mui/x-charts/BarChart';
+import { axisClasses } from '@mui/x-charts';
 
-import styled from '@mui/material/styles/styled';
 
 const drawerWidth = 258;
 const Search = styled('div')(({ theme }) => ({
@@ -83,26 +87,119 @@ const Search = styled('div')(({ theme }) => ({
         width: '100ch',
       },
     },
-  }));
-  
+}));
+const chartSetting = {
+    yAxis: [
+      {
+        label: 'rainfall (mm)',
+      },
+    ],
+    width: 650,
+    height: 400,
+    sx: {
+      [`.${axisClasses.left} .${axisClasses.label}`]: {
+        transform: 'translate(-20px, 0)',
+      },
+    },
+  };
+  const dataset = [
+    {
+      london: 59,
+      paris: 57,
+      newYork: 86,
+      seoul: 21,
+      month: 'Jan',
+    },
+    {
+      london: 50,
+      paris: 52,
+      newYork: 78,
+      seoul: 28,
+      month: 'Fev',
+    },
+    {
+      london: 47,
+      paris: 53,
+      newYork: 106,
+      seoul: 41,
+      month: 'Mar',
+    },
+    {
+      london: 54,
+      paris: 56,
+      newYork: 92,
+      seoul: 73,
+      month: 'Apr',
+    },
+    {
+      london: 57,
+      paris: 69,
+      newYork: 92,
+      seoul: 99,
+      month: 'May',
+    },
+    {
+      london: 60,
+      paris: 63,
+      newYork: 103,
+      seoul: 144,
+      month: 'June',
+    },
+    {
+      london: 59,
+      paris: 60,
+      newYork: 105,
+      seoul: 319,
+      month: 'July',
+    },
+    {
+      london: 65,
+      paris: 60,
+      newYork: 106,
+      seoul: 249,
+      month: 'Aug',
+    },
+    {
+      london: 51,
+      paris: 51,
+      newYork: 95,
+      seoul: 131,
+      month: 'Sept',
+    },
+    {
+      london: 60,
+      paris: 65,
+      newYork: 97,
+      seoul: 55,
+      month: 'Oct',
+    },
+    {
+      london: 67,
+      paris: 64,
+      newYork: 76,
+      seoul: 48,
+      month: 'Nov',
+    },
+    {
+      london: 61,
+      paris: 70,
+      newYork: 103,
+      seoul: 25,
+      month: 'Dec',
+    },
+];
+const valueFormatter = (value) => `${value}mm`;
+
 export default function PermanentDrawerLeft() {
   return (
-    <Box sx={{ display: 'flex',
-    // height:"100vh",width:"100vw",
-    backgroundColor:"#F0F1F6",
-    }}
-    >
-        <CssBaseline />
-        <AppBar
-            position="fixed"
-            sx={{ 
-                width: `calc(100% - ${drawerWidth}px)`, 
-                ml: `${drawerWidth}px`, 
-                backgroundColor:"white", 
-            }}
-        >
-            <Toolbar>
-                <IconButton
+    <Box sx={{ display: 'flex' }}>
+      <CssBaseline />
+      <AppBar
+        position="fixed"
+        sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px`,backgroundColor:"white" }}
+      >
+        <Toolbar>
+        <IconButton
                     size="large"
                     edge="start"
                     color="inherit"
@@ -162,23 +259,22 @@ export default function PermanentDrawerLeft() {
                     <MoreIcon sx={{backgroundColor:"red"}} />
                     </IconButton>
                 </Box>
-            </Toolbar>
-        </AppBar>
-        <Drawer
-            sx={{
+        </Toolbar>
+      </AppBar>
+      <Drawer
+        sx={{
+          width: drawerWidth,
+          flexShrink: 0,
+          '& .MuiDrawer-paper': {
             width: drawerWidth,
-            flexShrink: 0,
-            '& .MuiDrawer-paper': {
-                width: drawerWidth,
-                height:'1800px',
-                boxSizing: 'border-box',
-                backgroundColor: "#181824",
-            },
-            }}
-            variant="permanent"
-            anchor="left"
-        >
-            <Toolbar>
+            boxSizing: 'border-box',
+            backgroundColor:"black",
+          },
+        }}
+        variant="permanent"
+        anchor="left"
+      >
+        <Toolbar>
                 <List sx={{
                     width: "258px",
                     height: "56px",
@@ -315,17 +411,18 @@ export default function PermanentDrawerLeft() {
             </ListItemButton>
         </List>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3}}>
-      <Toolbar />
+      <Box
+        component="main"
+        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3,backgroundColor:"#F0F1F6", }}
+      >
+        <Toolbar />
         <Grid container sx={{
             background: "#fff",
-            border: "2px solid red",
             borderRadius: "3px",
-            m: "auto",
             p:2
             }}
         >
-            <Grid item lg={6} md={6} sm={12} xs={12} sx={{border:"2px solid red"}}>
+            <Grid item lg={6} md={6} sm={12} xs={12}>
               <Typography sx={{
                 fontSize: "14px",
                 color: "#7e7e7e",
@@ -352,35 +449,32 @@ export default function PermanentDrawerLeft() {
               }}>
                 Upgrade To Pro
               </Button>
-              <CloseIcon sx={{ color: "#7e7e7e", fontSize: "20px", marginLeft: "10px" }} />
+              <CloseIcon sx={{ color: "#7e7e7e", fontSize: "20px",marginLeft: "10px"}} />
             </Grid>
           </Grid>
           <Grid container  sx={{
-              border: "2px solid blue",
-              m: "auto",
+              p:1,
               mt: "20px",
               mb: "20px",
             }}
           >
-              <Grid item lg={5} md={6} xs={12} sx={{ border: "2px solid red", display: "flex", alignItems: "flex-start" }}>
+              <Grid item lg={5} md={6} xs={12} sx={{ display: "flex", alignItems: "flex-start" }}>
                   <Typography variant="h5" sx={{ fontFamily: '"nunito-bold", sans-serif', fontSize: "1.5rem" , }}>
                     Overview dashboard
                   </Typography>
               </Grid>
               <Grid item lg={3} md={6} xs={12} sx={{
-                  border: "2px solid black",
                   background: "#fff",
                   textAlign:"center",
                   marginLeft: "auto",
-                  p:1
+                  p:1.5
               }}>
                   <Typography sx={{ fontSize: "12px", color: "#7e7e7e" }}>7 Days | 1 Month | 3 Month</Typography>
               </Grid>
               <Grid item lg={3} md={6} xs={12} sm={12} sx={{
-                  border: "2px solid black",
                   background: "#fff",
                   marginLeft:"auto",
-                  p:1
+                  p:1.5
                   }}
               >
                   <Typography sx={{
@@ -398,34 +492,32 @@ export default function PermanentDrawerLeft() {
             <Grid
                 container
                 sx={{
-                    border: "2px solid red",
                     alignItems: "center",
-                    margin: "auto",
                 }}
             >
                 <Grid item xs={0}>
-                    <Box sx={{ border: "2px solid red", textAlign: "start" }}>
+                    <Box sx={{textAlign: "start" }}>
                     <Typography sx={{ fontSize: "14px", color: "#7E7E7E", padding: "0px 10px 0px 0px" }}>
                         Users
                     </Typography>
                     </Box>
                 </Grid>
                 <Grid item xs={"auto"}>
-                    <Box p={2} sx={{ fontSize: "14px", color: "#7E7E7E", border: "2px solid red" }}>
-                    Business
+                    <Box p={2} sx={{ fontSize: "14px", color: "#7E7E7E"}}>
+                        Business
                     </Box>
                 </Grid>
                 <Grid item xs={"auto"}>
-                    <Box p={2} sx={{ fontSize: "14px", color: "#7E7E7E", border: "2px solid red" }}>
-                    Performance
+                    <Box p={2} sx={{ fontSize: "14px", color: "#7E7E7E"}}>
+                        Performance
                     </Box>
                 </Grid>
                 <Grid item xs={"auto"}>
-                    <Box p={2} sx={{ fontSize: "14px", color: "#7E7E7E", border: "2px solid red" }}>
-                    Conversion
+                    <Box p={2} sx={{ fontSize: "14px", color: "#7E7E7E"}}>
+                        Conversion
                     </Box>
                 </Grid>
-                <Grid item xs={"auto"} sx={{ border: "2px solid red", marginLeft: "auto" }}>
+                <Grid item xs={"auto"} sx={{marginLeft: "auto" }}>
                     <Box
                     sx={{
                         display: "flex",
@@ -448,7 +540,7 @@ export default function PermanentDrawerLeft() {
                             fontFamily: '"nunito-bold", sans-serif',
                             pt:"10px",
                             pb:"20px"
-                            }}
+                        }}
                         >932.00</Typography>
                         <CircularProgress variant="determinate" value={75} style={{width: 125, height: 125,paddingtop:10}} >
                             <LightbulbIcon />
@@ -547,22 +639,70 @@ export default function PermanentDrawerLeft() {
                     </Paper>
                 </Grid>
             </Grid>
-            <Grid container  mt={2} sx={{background:"white"}}>
-                <Grid item xs={12} sm={12} md={6} ld={6}  sx={{border:"2px solid red"}}>
-                        <Paper sx={{p:"20px"}}>
-                            <Typography>Recent Activity</Typography>
-                        </Paper>
+            <Grid container  mt={2} p={2} sx={{background:"white"}}>
+                <Grid ld={6} md={6} sm={12} xs={12} sx={{fontSize:"14px"}}>
+                    <Typography>Recent Activity</Typography>
                 </Grid>
-                <Grid item xs={12} sm={12} md={6} ld={6}  sx={{border:"2px solid red"}}>
-                        <Paper sx={{p:"25px",pr:"0px", display:"flex",justifyContent: "flex-end",}}>
-                            <MoreIcon sx={{fontSize:"14px"}}/>
-                        </Paper>
+                <Grid ld={6} md={6} sm={12} xs={12} p={1} sx={{display:"flex",justifyContent: "flex-end"}}>
+                    <MoreIcon sx={{fontSize:"14px"}}/>
+                </Grid>
+                <Grid container item xs={12} sm={6} md={3}>
+                    <Grid item container direction="row"  xs={12}>
+                        <Grid item xs={6} md={6} sx={{fontSize:"14px", padding:0}}>Total Profit</Grid>
+                        <Grid item xs={6} md={6} sx={{fontSize:"14px",display:"flex",justifyContent: "flex-end", padding:0, color:"#44ce42"}}>
+                            <Typography><ArrowUpwardIcon sx={{fontSize:"14px"}}/>2.95</Typography>
+                        </Grid>
+                    </Grid>
+                    <Grid item xs={12} sm={6} md={12}>
+                        <Typography variant={"h5"} sx={{color:"black", fontSize:"20px"}}>$ 92556</Typography>
+                    </Grid>
+                    <Grid item xs={12} sm={6} md={12}>
+                        <LineChart
+                            xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+                            series={[
+                                {
+                                data: [2, 5.5, 2, 8.5, 1.5, 5],
+                                area: true,
+                                },
+                            ]}
+                            width={230}
+                            height={200}
+                        />
+                    </Grid>
+                </Grid>
+                <Grid item xs={12} sm={6} md={9}>
+                    <BarChart
+                        dataset={dataset}
+                        xAxis={[{ scaleType: 'band', dataKey: 'month' }]}
+                        series={[
+                            { dataKey: 'london', label: 'London', valueFormatter },
+                            { dataKey: 'paris', label: 'Paris', valueFormatter },
+                            { dataKey: 'newYork', label: 'New York', valueFormatter },
+                            { dataKey: 'seoul', label: 'Seoul', valueFormatter },
+                        ]}
+                        {...chartSetting}
+                    />
                 </Grid>
             </Grid>
-            <Typography>helloxcdsfsfsvvvvvvvvvffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-            dsfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-        </Typography>
-        </Box>
+            <Grid container spacing={2} sx={{ backgroundColor: "white", mt: "20px" }}>
+                <Grid item lg={6} md={6} sm={12} xs={12}>
+                    Copyright @ bootstrapdash.com 2020
+                </Grid>
+                <Grid
+                    item
+                    lg={6}
+                    md={6}
+                    sm={12}
+                    xs={12}
+                    sx={{
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    }}
+                >
+                    Free Bootstrap dashboard templates from Bootstrapdash.com
+                </Grid>
+            </Grid>
+      </Box>
     </Box>
   );
 }
