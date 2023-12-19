@@ -57,18 +57,38 @@
 // }
 // export default App;
 
-
-// import PermanentDrawerLeft from "./UI_Project/hello"
-import PermanentDrawerLeft from "./UI_Project/new"
+import PermanentDrawerLeft from "./UI_Project/new";
+import Footer from "./UI_Project/footer";
 const App=()=>{
   return(
     <>
         <div className="App">
             <PermanentDrawerLeft/>
+            {/* <Footer/> */}
         </div>
     </>
   )
 }
 export default App;
 
+// import './App.css';
+// import Header from './Component/header';
+// import Page from './Component/page';
+// import Footer from './Component/footer';
+// import Main from './Component/main';
+// import ClippedDrawer from "./Component/hello"
+// function App() {
+//   return (
+    // <div className="App">
+      {/* <Header/>
+      <br></br><br></br>
+      <Main/>
+      <Page/>
+      <Footer/> */}
+      
+       {/* <ClippedDrawer/>
+    </div>
+  );
+}
 
+export default App; */}

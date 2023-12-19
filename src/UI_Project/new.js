@@ -94,8 +94,8 @@ const chartSetting = {
         label: 'rainfall (mm)',
       },
     ],
-    width: 650,
-    height: 400,
+    width: 600,
+    height: 300,
     sx: {
       [`.${axisClasses.left} .${axisClasses.label}`]: {
         transform: 'translate(-20px, 0)',
@@ -640,10 +640,10 @@ export default function PermanentDrawerLeft() {
                 </Grid>
             </Grid>
             <Grid container  mt={2} p={2} sx={{background:"white"}}>
-                <Grid ld={6} md={6} sm={12} xs={12} sx={{fontSize:"14px"}}>
+                <Grid xs={12} sm={12} ld={6} md={6}  sx={{fontSize:"14px"}}>
                     <Typography>Recent Activity</Typography>
                 </Grid>
-                <Grid ld={6} md={6} sm={12} xs={12} p={1} sx={{display:"flex",justifyContent: "flex-end"}}>
+                <Grid xs={12} sm={12} md={6} p={1} sx={{display:"flex",justifyContent: "flex-end"}}>
                     <MoreIcon sx={{fontSize:"14px"}}/>
                 </Grid>
                 <Grid container item xs={12} sm={6} md={3}>
@@ -670,18 +670,21 @@ export default function PermanentDrawerLeft() {
                         />
                     </Grid>
                 </Grid>
-                <Grid item xs={12} sm={6} md={9}>
-                    <BarChart
-                        dataset={dataset}
-                        xAxis={[{ scaleType: 'band', dataKey: 'month' }]}
-                        series={[
-                            { dataKey: 'london', label: 'London', valueFormatter },
-                            { dataKey: 'paris', label: 'Paris', valueFormatter },
-                            { dataKey: 'newYork', label: 'New York', valueFormatter },
-                            { dataKey: 'seoul', label: 'Seoul', valueFormatter },
-                        ]}
-                        {...chartSetting}
-                    />
+                <Grid item xs={12} sm={12} md={8} sx={{ border: "2px solid red", display: "flex", flexDirection: "column", overflow: "auto" }}>
+                    <Typography variant="h6" sx={{ marginBottom: 2 }}>Your BarChart Title</Typography>
+                        <div style={{ flex: 1 }}>
+                            <BarChart
+                            dataset={dataset}
+                            xAxis={[{ scaleType: 'band', dataKey: 'month' }]}
+                            series={[
+                                { dataKey: 'london', label: 'London', valueFormatter },
+                                { dataKey: 'paris', label: 'Paris', valueFormatter },
+                                { dataKey: 'newYork', label: 'New York', valueFormatter },
+                                { dataKey: 'seoul', label: 'Seoul', valueFormatter },
+                            ]}
+                            {...chartSetting}
+                            />
+                        </div>
                 </Grid>
             </Grid>
             <Grid container spacing={2} sx={{ backgroundColor: "white", mt: "20px" }}>
