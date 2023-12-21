@@ -9,7 +9,7 @@ export default function Footer() {
     <Box
       sx={{
         backgroundColor: (theme) =>
-          theme.palette.mode === "light"
+          theme.palette.mode === "pink"
             ? theme.palette.grey[200]
             : theme.palette.grey[800],
         p: 6,

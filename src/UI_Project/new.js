@@ -94,7 +94,7 @@ const chartSetting = {
         label: 'rainfall (mm)',
       },
     ],
-    width: 600,
+    width: 900,
     height: 300,
     sx: {
       [`.${axisClasses.left} .${axisClasses.label}`]: {
@@ -196,7 +196,7 @@ export default function PermanentDrawerLeft() {
       <CssBaseline />
       <AppBar
         position="fixed"
-        sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px`,backgroundColor:"white" }}
+        sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px`,backgroundColor:"white"}}
       >
         <Toolbar>
         <IconButton
@@ -413,7 +413,7 @@ export default function PermanentDrawerLeft() {
       </Drawer>
       <Box
         component="main"
-        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3,backgroundColor:"#F0F1F6", }}
+        sx={{ flexGrow: 1,p: 3,backgroundColor:"#F0F1F6",}}
       >
         <Toolbar />
         <Grid container sx={{
@@ -705,6 +705,19 @@ export default function PermanentDrawerLeft() {
                     Free Bootstrap dashboard templates from Bootstrapdash.com
                 </Grid>
             </Grid>
+            <Typography paragraph>
+                Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
+                eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
+                neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
+                tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
+                sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
+                tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
+                gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
+                et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
+                tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
+                eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
+                posuere sollicitudin aliquam ultrices sagittis orci a.
+            </Typography>
       </Box>
     </Box>
   );

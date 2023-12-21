@@ -59,12 +59,15 @@
 
 import PermanentDrawerLeft from "./UI_Project/new";
 import Footer from "./UI_Project/footer";
+// import ProductSlider from "./Slider"
 const App=()=>{
   return(
     <>
         <div className="App">
-            <PermanentDrawerLeft/>
-            {/* <Footer/> */}
+            <PermanentDrawerLeft/> 
+             <Footer/>
+            {/* <ProductSlider/> */}
+            {/* <img src="https://img.freepik.com/free-vector/cute-girl-with-peace-sign-cartoon-vector-icon-illustration-people-fashion-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-3977.jpg?size=338&ext=jpg&ga=GA1.1.1222169770.1702944000&semt=ais" alt="hello"/> */}
         </div>
     </>
   )
