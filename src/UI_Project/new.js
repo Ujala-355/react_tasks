@@ -94,7 +94,7 @@ const chartSetting = {
         label: 'rainfall (mm)',
       },
     ],
-    width: 900,
+    width: 700,
     height: 300,
     sx: {
       [`.${axisClasses.left} .${axisClasses.label}`]: {

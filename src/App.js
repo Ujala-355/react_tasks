@@ -1,3 +1,53 @@
+// Import React at the beginning
+// import React from "react";
+// import NavBar from "./newUI/NavBar";
+// import Footer from "./newUI/footer" 
+// const App = () => {
+//   return (
+//     <>
+//       <NavBar />
+//       <Footer/>
+//     </>
+//   );
+// };
+
+// export default App;
+
+
+import React from "react";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import DrawerAppBar from "./Nicecream/navBar";
+const theme = createTheme();
+
+const App = () => {
+  return (
+    <>
+      <ThemeProvider theme={theme}>
+        <DrawerAppBar />
+      </ThemeProvider>
+    </>
+  );
+};
+
+export default App;
+
+
+// import MyPagination from "./pagination"
+// const App=()=>{
+//   return(
+//     <>
+//         <MyPagination/>
+//     </>
+//   )
+// }
+// export default App;
+
+
+
+
+
+
+
 // import Note from "./noteApp/notes";
 // import {Typography} from "@mui/material"
 // import EmojiSearch from "./emojiA/emoji"
@@ -57,22 +107,24 @@
 // }
 // export default App;
 
-import PermanentDrawerLeft from "./UI_Project/new";
-import Footer from "./UI_Project/footer";
+// import PermanentDrawerLeft from "./UI_Project/new";
+// import Footer from "./UI_Project/footer";
 // import ProductSlider from "./Slider"
-const App=()=>{
-  return(
-    <>
-        <div className="App">
-            <PermanentDrawerLeft/> 
-             <Footer/>
+// import  Counter from  "./Counter"
+// const App=()=>{
+  // return(
+    // <>
+        // <div className="App">
+          // <Counter/>
+            {/* <PermanentDrawerLeft/> 
+             <Footer/> */}
             {/* <ProductSlider/> */}
             {/* <img src="https://img.freepik.com/free-vector/cute-girl-with-peace-sign-cartoon-vector-icon-illustration-people-fashion-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-3977.jpg?size=338&ext=jpg&ga=GA1.1.1222169770.1702944000&semt=ais" alt="hello"/> */}
-        </div>
-    </>
-  )
-}
-export default App;
+        // </div>
+    // </>
+  // )
+// }
+// export default App;
 
 // import './App.css';
 // import Header from './Component/header';
@@ -95,3 +147,4 @@ export default App;
 }
 
 export default App; */}
+
