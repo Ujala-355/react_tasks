@@ -14,23 +14,36 @@
 // export default App;
 
 
-import React from "react";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import DrawerAppBar from "./Nicecream/navBar";
-const theme = createTheme();
+// import React from "react";
+// import { createTheme, ThemeProvider } from "@mui/material/styles";
+// import DrawerAppBar from "./Nicecream/navBar";
+// const theme = createTheme();
 
-const App = () => {
-  return (
-    <>
-      <ThemeProvider theme={theme}>
-        <DrawerAppBar />
-      </ThemeProvider>
-    </>
-  );
-};
+// const App = () => {
+//   return (
+//     <>
+//       <ThemeProvider theme={theme}>
+//         <DrawerAppBar />
+//       </ThemeProvider>
+//     </>
+//   );
+// };
 
+// export default App;
+
+
+import Git from "./gitSearch/Git"
+const App=()=>{
+    return(
+        <>
+            <div>
+                <Git/>
+            </div>
+          
+        </>
+    )
+}
 export default App;
-
 
 // import MyPagination from "./pagination"
 // const App=()=>{
